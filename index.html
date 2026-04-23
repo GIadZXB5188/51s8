@@ -649,7 +649,7 @@ async function checkTwitchStream() {
   const txt = document.querySelector('.btxt');
   
   try {
-    const res = await fetch('https://id.twitch.tv/api/is_live/51t8/channel');
+    const res = await fetch('https://id.twitch.tv/api/is_live/670339282/channel');
     const data = await res.json();
     const live = data.live;
     
