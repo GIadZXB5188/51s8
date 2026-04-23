@@ -585,11 +585,14 @@ function loadIntoPanel() {
 
 // Export HTML with embedded data
 function exportHTML() {
-  const html = document.documentElement.outerHTML;
+  // Create a temporary copy to avoid modifying the live DOM
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = document.documentElement.outerHTML;
+  
   const d = localStorage.getItem('s8_data') || '{}';
   const img = localStorage.getItem('s8_img');
   
-  let exportDoc = html;
+  let exportDoc = tempDiv.innerHTML;
   
   // Replace default values with saved data
   if (d.uname) {
