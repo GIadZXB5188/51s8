@@ -31,9 +31,9 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .p3{left:52%;bottom:5%;animation-duration:5s;animation-delay:.8s}.p4{left:68%;bottom:15%;animation-duration:7s;animation-delay:2.2s}
 .p5{left:82%;bottom:25%;animation-duration:6s;animation-delay:3s}
 
-.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}
-.bdot{width:7px;height:7px;border-radius:50%;background:var(--neon);animation:pulse 1.5s infinite}
-.btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px;transition:color .4s}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(107,114,128,0.3);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}
+.bdot{width:7px;height:7px;border-radius:50%;background:#6b7280;animation:pulse 1.5s infinite}
+.btxt{font-family:'Space Mono',monospace;font-size:10px;color:#6b7280;letter-spacing:3px;transition:color .4s}
 
 .av-wrap{position:relative;width:100px;height:100px;margin-bottom:18px;animation:fadeUp .7s .1s both,float 4s 1s ease-in-out infinite}
 .ring1{position:absolute;inset:0;border-radius:50%;border:1.5px solid transparent;border-top-color:var(--gold);border-right-color:var(--neon);animation:spin 6s linear infinite;transition:border-color .4s}
@@ -636,7 +636,44 @@ function exportHTML() {
   if (img) { const el = document.getElementById('avImgEl'); el.src = img; el.style.display = 'block'; document.getElementById('avPh').style.display = 'none'; }
   // Apply default purple theme
   if (!d.color) applyAccent('#7a00ff');
+
+  // Check Twitch stream status
+  checkTwitchStream();
+  setInterval(checkTwitchStream, 60000);
 })();
+
+async function checkTwitchStream() {
+  const badge = document.querySelector('.badge');
+  const dot = document.querySelector('.bdot');
+  const txt = document.querySelector('.btxt');
+  
+  try {
+    const res = await fetch('https://api.twitch.tv/helix/streams?user_login=51t8', {
+      headers: {
+        'Client-ID': 'yn5ei5icyt1z9r9q7g0q1x5w0d0d0d0',
+        'Authorization': 'Bearer 1'
+      }
+    });
+    const data = await res.json();
+    const live = data.data && data.data.length > 0;
+    
+    if (live) {
+      dot.style.background = '#22c55e';
+      txt.textContent = 'LIVE';
+      txt.style.color = '#22c55e';
+      badge.style.borderColor = 'rgba(34,197,94,0.4)';
+    } else {
+      dot.style.background = '#6b7280';
+      txt.textContent = 'OFFLINE';
+      txt.style.color = '#6b7280';
+      badge.style.borderColor = 'rgba(107,114,128,0.3)';
+    }
+  } catch(e) {
+    dot.style.background = '#6b7280';
+    txt.textContent = 'OFFLINE';
+    txt.style.color = '#6b7280';
+  }
+}
 </script>
 
 
