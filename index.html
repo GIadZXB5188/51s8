@@ -1,4 +1,4 @@
-<html lang="en"><head>
+<html lang="en" style="--gold: #7a00ff; --neon: #b266ff;"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>51s8</title>
@@ -141,7 +141,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </head>
 <body>
 
-<div class="glow-orb" id="glowOrb"></div>
+<div class="glow-orb" id="glowOrb" style="background: radial-gradient(rgba(122, 0, 255, 0.19) 0%, rgba(178, 102, 255, 0.082) 40%, transparent 70%);"></div>
 <div class="particles">
   <div class="ptcl p1"></div><div class="ptcl p2"></div><div class="ptcl p3"></div>
   <div class="ptcl p4"></div><div class="ptcl p5"></div>
@@ -215,14 +215,14 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
     <div class="pw-icon">🔐</div>
     <div class="pw-title">Admin Access</div>
     <input class="pw-input" id="pwInput" type="password" placeholder="••••••" maxlength="20" autocomplete="off">
-    <div class="pw-err" id="pwErr"></div>
+    <div class="pw-err" id="pwErr">× باسورد خاطئ</div>
     <button class="pw-btn" id="pwBtn">دخول</button>
     <div class="pw-close" id="pwClose">إلغاء</div>
   </div>
 </div>
 
 <!-- ADMIN PANEL -->
-<div id="adminPanel">
+<div id="adminPanel" class="show">
   <div class="panel-wrap">
     <div class="panel-top">
       <div class="panel-title">⚙ لوحة التحكم</div>
@@ -446,7 +446,6 @@ document.getElementById('secretZone').addEventListener('click', () => {
   ct = setTimeout(() => clicks = 0, 1500);
   if (clicks >= 3) { clicks = 0; openPw(); }
 });
-if (location.hash === '#admin') openPw();
 
 function openPw() {
   document.getElementById('pwOverlay').classList.add('show');
