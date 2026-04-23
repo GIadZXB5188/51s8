@@ -1,4 +1,4 @@
-<html lang="en" style="--gold: #7a00ff; --neon: #b266ff;"><head>
+<html lang="en" style="--gold: #ad62fe; --neon: #ad62fe;"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>51s8</title>
@@ -31,13 +31,9 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .p3{left:52%;bottom:5%;animation-duration:5s;animation-delay:.8s}.p4{left:68%;bottom:15%;animation-duration:7s;animation-delay:2.2s}
 .p5{left:82%;bottom:25%;animation-duration:6s;animation-delay:3s}
 
-.badge{position:fixed;top:20px;right:20px;display:flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 12px;animation:fadeUp .6s both}
-.bdot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 1.5s infinite}
-.btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:3px;transition:color .4s}
-
-.live-badges{position:fixed;top:20px;left:20px;display:flex;gap:8px;animation:fadeUp .6s .1s both}
-.live-tag{width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s}
-.live-tag:hover{transform:scale(1.1);border-color:var(--gold)}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--neon);animation:pulse 1.5s infinite}
+.btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px;transition:color .4s}
 
 .av-wrap{position:relative;width:100px;height:100px;margin-bottom:18px;animation:fadeUp .7s .1s both,float 4s 1s ease-in-out infinite}
 .ring1{position:absolute;inset:0;border-radius:50%;border:1.5px solid transparent;border-top-color:var(--gold);border-right-color:var(--neon);animation:spin 6s linear infinite;transition:border-color .4s}
@@ -145,7 +141,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </head>
 <body>
 
-<div class="glow-orb" id="glowOrb" style="background: radial-gradient(rgba(122, 0, 255, 0.19) 0%, rgba(178, 102, 255, 0.082) 40%, transparent 70%);"></div>
+<div class="glow-orb" id="glowOrb" style="background: radial-gradient(rgba(173, 98, 254, 0.19) 0%, rgba(173, 98, 254, 0.082) 40%, transparent 70%);"></div>
 <div class="particles">
   <div class="ptcl p1"></div><div class="ptcl p2"></div><div class="ptcl p3"></div>
   <div class="ptcl p4"></div><div class="ptcl p5"></div>
@@ -157,11 +153,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 </div>
 
 <div class="page">
-  <div class="badge"><div class="bdot"></div><span class="btxt">LIVE</span></div>
-  <div class="live-badges">
-    <div class="live-tag" id="live0" title="Twitch">🟣</div>
-    <div class="live-tag" id="live1" title="YouTube">▶</div>
-  </div>
+  <div class="badge"><div class="bdot"></div><span class="btxt">Online</span></div>
 
   <div class="av-wrap">
     <div class="ring1" id="ring1"></div>
@@ -223,7 +215,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
     <div class="pw-icon">🔐</div>
     <div class="pw-title">Admin Access</div>
     <input class="pw-input" id="pwInput" type="password" placeholder="••••••" maxlength="20" autocomplete="off">
-    <div class="pw-err" id="pwErr">× باسورد خاطئ</div>
+    <div class="pw-err" id="pwErr"></div>
     <button class="pw-btn" id="pwBtn">دخول</button>
     <div class="pw-close" id="pwClose">إلغاء</div>
   </div>
@@ -249,7 +241,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
       <div class="sec-body">
         <div class="color-presets" id="cpresets">
-          <div class="cp active" style="background:#7a00ff" data-color="#7a00ff"></div>
+          <div class="cp" style="background:#7a00ff" data-color="#7a00ff"></div>
           <div class="cp" style="background:#b266ff" data-color="#b266ff"></div>
           <div class="cp" style="background:#ff4d4d" data-color="#ff4d4d"></div>
           <div class="cp" style="background:#00e5ff" data-color="#00e5ff"></div>
@@ -260,7 +252,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
           <input type="color" class="cp-custom" id="colorInput" value="#7a00ff">
         </div>
         <div class="row">
-          <button class="save-btn" onclick="saveSection('color')">حفظ اللون</button>
+          <button class="save-btn saved" onclick="saveSection('color')">✓ تم!</button>
         </div>
       </div>
     </div>
@@ -506,12 +498,10 @@ document.getElementById('tagInput').oninput = e =>
     document.getElementById('li'+i).textContent = e.target.value || '•';
     document.getElementById('soc'+i).textContent = e.target.value || '•';
     document.getElementById('si'+i).textContent = e.target.value || '•';
-    if (i < 2) document.getElementById('live'+i).textContent = e.target.value || '•';
   };
   document.getElementById('n'+i).oninput = e => document.getElementById('ln'+i).textContent = e.target.value;
   document.getElementById('h'+i).oninput = e => {
     document.getElementById('lu'+i).textContent = e.target.value.replace('https://','').replace('http://','');
-    if (i < 2) document.getElementById('live'+i).onclick = () => window.open(e.target.value, '_blank');
   };
 });
 
@@ -631,14 +621,14 @@ function exportHTML() {
 // Boot: apply saved
 (function(){
   const d = JSON.parse(localStorage.getItem('s8_data') || '{}');
-if (d.color) applyAccent(d.color);
+  if (d.color) applyAccent(d.color);
   if (d.uname) { document.getElementById('usernameEl').textContent = d.uname; document.getElementById('avPh').textContent = d.uname; }
   if (d.tag) document.getElementById('tagEl').textContent = d.tag;
   if (d.links) d.links.forEach((l,i) => {
     if (!l) return;
     if (l.name) document.getElementById('ln'+i).textContent = l.name;
-    if (l.href) { document.getElementById('lnk'+i).href = l.href; document.getElementById('soc'+i).href = l.href; document.getElementById('lu'+i).textContent = l.href.replace('https://','').replace('http://',''); if (i < 2) document.getElementById('live'+i).onclick = () => window.open(l.href, '_blank'); }
-    if (l.emoji) { document.getElementById('li'+i).textContent = l.emoji; document.getElementById('soc'+i).textContent = l.emoji; if (i < 2) document.getElementById('live'+i).textContent = l.emoji; }
+    if (l.href) { document.getElementById('lnk'+i).href = l.href; document.getElementById('soc'+i).href = l.href; document.getElementById('lu'+i).textContent = l.href.replace('https://','').replace('http://',''); }
+    if (l.emoji) { document.getElementById('li'+i).textContent = l.emoji; document.getElementById('soc'+i).textContent = l.emoji; }
   });
   const img = localStorage.getItem('s8_img');
   if (img) { const el = document.getElementById('avImgEl'); el.src = img; el.style.display = 'block'; document.getElementById('avPh').style.display = 'none'; }
