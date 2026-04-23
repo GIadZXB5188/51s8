@@ -642,18 +642,16 @@ function exportHTML() {
   setInterval(checkTwitchStream, 60000);
 })();
 
-// Check Twitch stream status (no Client-ID needed)
+// Check Twitch stream status
 async function checkTwitchStream() {
   const badge = document.querySelector('.badge');
   const dot = document.querySelector('.bdot');
   const txt = document.querySelector('.btxt');
   
   try {
-    const res = await fetch('https://api.twitch.tv/v5/streams/774492118', {
-      headers: { 'Client-ID': 'yn5ei5icyt1z9r9q7g0q1x5w0d0d0d0' }
-    });
+    const res = await fetch('https://id.twitch.tv/api/is_live/51t8/channel');
     const data = await res.json();
-    const live = data.stream !== null;
+    const live = data.live;
     
     if (live) {
       dot.style.background = '#22c55e';
