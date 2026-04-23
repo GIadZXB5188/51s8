@@ -24,19 +24,11 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 /* PAGE */
 .page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 120px}
-.glow-orb{position:fixed;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:250px;background:radial-gradient(ellipse,var(--gold)30 0%,var(--neon)15 40%,transparent 70%);pointer-events:none;animation:pulse 4s ease-in-out infinite;z-index:0;transition:background .5s}
-.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.ptcl{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--neon);animation:drift linear infinite;opacity:0}
-.p1{left:15%;bottom:10%;animation-duration:6s}.p2{left:30%;bottom:20%;animation-duration:8s;animation-delay:1.5s}
-.p3{left:52%;bottom:5%;animation-duration:5s;animation-delay:.8s}.p4{left:68%;bottom:15%;animation-duration:7s;animation-delay:2.2s}
-.p5{left:82%;bottom:25%;animation-duration:6s;animation-delay:3s}
-
-.badge{position:fixed;top:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 12px;animation:fadeUp .6s both}
+.badge{position:fixed;top:20px;right:20px;display:flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 12px;animation:fadeUp .6s both}
 .bdot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 1.5s infinite}
 .btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:3px;transition:color .4s}
-
-.live-badges{display:flex;gap:8px;margin-bottom:30px;animation:fadeUp .7s .5s both}
-.live-tag{width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all .2s}
+.live-badges{position:fixed;top:20px;left:20px;display:flex;gap:8px;animation:fadeUp .6s .1s both}
+.live-tag{width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s}
 .live-tag:hover{transform:scale(1.1);border-color:var(--gold)}
 
 .av-wrap{position:relative;width:100px;height:100px;margin-bottom:18px;animation:fadeUp .7s .1s both,float 4s 1s ease-in-out infinite}
