@@ -642,16 +642,18 @@ function exportHTML() {
   setInterval(checkTwitchStream, 60000);
 })();
 
-// Check Twitch stream status
+// Check Twitch stream status using preview image
 async function checkTwitchStream() {
   const badge = document.querySelector('.badge');
   const dot = document.querySelector('.bdot');
   const txt = document.querySelector('.btxt');
   
   try {
-    const res = await fetch('https://id.twitch.tv/api/is_live/670339282/channel');
-    const data = await res.json();
-    const live = data.live;
+    const res = await fetch('https://static-cdn.jtvnw.net/previews-ttv/live_user_51t8-1x1.jpg', {
+      method: 'HEAD',
+      redirect: 'manual'
+    });
+    const live = res.ok;
     
     if (live) {
       dot.style.background = '#22c55e';
