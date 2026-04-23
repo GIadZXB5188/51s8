@@ -1,92 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>51s8</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#d4af37;--bg:#080808;--surface:#111;--border:rgba(212,175,55,0.12)}
+:root{--gold:#7a00ff;--bg:#0b0b0f;--surface:#131318;--border:rgba(122,0,255,0.15);--neon:#b266ff}
 html,body{min-height:100%;background:var(--bg);color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(122,0,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(122,0,255,0.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes spinR{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes glow{0%,100%{box-shadow:0 0 10px rgba(212,175,55,0.2)}50%{box-shadow:0 0 24px rgba(212,175,55,0.45)}}
+@keyframes glow{0%,100%{box-shadow:0 0 15px var(--gold)}50%{box-shadow:0 0 35px var(--neon)}}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes drift{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-120px);opacity:0}}
 @keyframes expand{from{width:0;opacity:0}to{width:60px;opacity:1}}
 @keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes smoke{0%{transform:translateY(0) scale(1);opacity:0}50%{opacity:.15}100%{transform:translateY(-200px) scale(1.5);opacity:0}}
 
+/* PAGE */
 .page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 120px}
-.glow-orb{position:fixed;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(212,175,55,0.16) 0%,transparent 70%);pointer-events:none;animation:pulse 4s ease-in-out infinite;z-index:0;transition:background .5s}
+.glow-orb{position:fixed;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:250px;background:radial-gradient(ellipse,var(--gold)30 0%,var(--neon)15 40%,transparent 70%);pointer-events:none;animation:pulse 4s ease-in-out infinite;z-index:0;transition:background .5s}
 .particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.ptcl{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);animation:drift linear infinite;opacity:0}
+.ptcl{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--neon);animation:drift linear infinite;opacity:0}
 .p1{left:15%;bottom:10%;animation-duration:6s}.p2{left:30%;bottom:20%;animation-duration:8s;animation-delay:1.5s}
 .p3{left:52%;bottom:5%;animation-duration:5s;animation-delay:.8s}.p4{left:68%;bottom:15%;animation-duration:7s;animation-delay:2.2s}
 .p5{left:82%;bottom:25%;animation-duration:6s;animation-delay:3s}
 
-.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(212,175,55,0.25);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}
-.bdot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 1.5s infinite}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--neon);animation:pulse 1.5s infinite}
 .btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px;transition:color .4s}
 
 .av-wrap{position:relative;width:100px;height:100px;margin-bottom:18px;animation:fadeUp .7s .1s both,float 4s 1s ease-in-out infinite}
-.ring1{position:absolute;inset:0;border-radius:50%;border:1.5px solid transparent;border-top-color:var(--gold);border-right-color:rgba(212,175,55,0.3);animation:spin 6s linear infinite;transition:border-color .4s}
+.ring1{position:absolute;inset:0;border-radius:50%;border:1.5px solid transparent;border-top-color:var(--gold);border-right-color:var(--neon);animation:spin 6s linear infinite;transition:border-color .4s}
 .ring2{position:absolute;inset:6px;border-radius:50%;border:1px solid transparent;border-bottom-color:var(--gold);animation:spinR 4s linear infinite;transition:border-color .4s}
-.av-img{position:absolute;inset:13px;border-radius:50%;overflow:hidden;border:1.5px solid rgba(212,175,55,0.45);animation:glow 2.5s ease-in-out infinite}
+.av-img{position:absolute;inset:13px;border-radius:50%;overflow:hidden;border:1.5px solid var(--neon);animation:glow 2.5s ease-in-out infinite}
 .av-img img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.av-ph{width:100%;height:100%;background:#111;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;border-radius:50%}
+.av-ph{width:100%;height:100%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--neon);letter-spacing:1px;border-radius:50%}
 
 .username{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;letter-spacing:5px;color:#fff;animation:fadeUp .7s .2s both;margin-bottom:4px;transition:all .3s}
-.tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:6px;color:var(--gold);margin-bottom:18px;animation:fadeUp .7s .3s both;transition:color .4s}
-.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:20px;animation:expand .8s .4s both}
+.tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:6px;color:var(--neon);margin-bottom:18px;animation:fadeUp .7s .3s both;transition:color .4s}
+.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--neon),transparent);margin-bottom:20px;animation:expand .8s .4s both}
 
 .soc-row{display:flex;gap:10px;margin-bottom:30px;animation:fadeUp .7s .5s both}
-.soc{width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color .2s,transform .2s}
-.soc:hover{border-color:var(--gold);transform:translateY(-4px)}
+.soc{width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.soc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 4px 20px rgba(122,0,255,0.4)}
 
 .links{width:100%;max-width:320px;display:flex;flex-direction:column;gap:9px}
 .lnk{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--border);text-decoration:none;transition:all .2s;opacity:0;animation:fadeUp .6s both}
 .lnk:nth-child(1){animation-delay:.65s}.lnk:nth-child(2){animation-delay:.78s}.lnk:nth-child(3){animation-delay:.91s}.lnk:nth-child(4){animation-delay:1.04s}.lnk:nth-child(5){animation-delay:1.17s}
-.lnk:hover{border-color:var(--gold);background:#161616;transform:translateX(5px)}
-.lnk:hover .arr{color:var(--gold);transform:translateX(4px)}
-.licon{width:34px;height:34px;border-radius:8px;background:#1a1a1a;border:1px solid rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.lnk:hover{border-color:var(--gold);background:#18182a;transform:translateX(5px);box-shadow:0 0 20px rgba(122,0,255,0.25)}
+.lnk:hover .arr{color:var(--neon);transform:translateX(4px)}
+.licon{width:34px;height:34px;border-radius:8px;background:#1a1a1a;border:1px solid rgba(122,0,255,0.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .lbody{flex:1}.lname{font-size:14px;font-weight:600;color:#fff}.lurl{font-size:10px;color:rgba(255,255,255,0.28);font-family:'Space Mono',monospace;margin-top:1px}
-.arr{font-size:18px;color:rgba(212,175,55,0.35);transition:all .2s}
+.arr{font-size:18px;color:rgba(122,0,255,0.35);transition:all .2s}
 
 .foot{margin-top:32px;display:flex;align-items:center;gap:10px;animation:fadeUp .7s 1.3s both}
-.fline{width:28px;height:.5px;background:rgba(212,175,55,0.3)}
+.fline{width:28px;height:.5px;background:rgba(122,0,255,0.3)}
 .ftxt{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,0.15);letter-spacing:3px}
 
+/* PASSWORD */
 #pwOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 #pwOverlay.show{display:flex}
-.pw-box{background:#0f0f0f;border:1px solid rgba(212,175,55,0.2);border-radius:20px;padding:32px 28px;width:280px;display:flex;flex-direction:column;align-items:center;gap:14px;animation:slideDown .4s both}
+.pw-box{background:#0f0f0f;border:1px solid rgba(122,0,255,0.25);border-radius:20px;padding:32px 28px;width:280px;display:flex;flex-direction:column;align-items:center;gap:14px;animation:slideDown .4s both}
 .pw-icon{font-size:28px}.pw-title{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px}
-.pw-input{width:100%;background:#1a1a1a;border:1px solid rgba(212,175,55,0.2);border-radius:10px;padding:11px 14px;color:#fff;font-family:'Space Mono',monospace;font-size:14px;letter-spacing:4px;text-align:center;outline:none;transition:border-color .2s}
-.pw-input:focus{border-color:rgba(212,175,55,0.5)}
-.pw-btn{width:100%;padding:11px;border-radius:10px;background:var(--gold);border:none;color:#000;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:opacity .2s}
-.pw-btn:hover{opacity:.85}
+.pw-input{width:100%;background:#1a1a1a;border:1px solid rgba(122,0,255,0.25);border-radius:10px;padding:11px 14px;color:#fff;font-family:'Space Mono',monospace;font-size:14px;letter-spacing:4px;text-align:center;outline:none;transition:border-color .2s}
+.pw-input:focus{border-color:var(--gold)}
+.pw-btn{width:100%;padding:11px;border-radius:10px;background:var(--gold);border:none;color:#fff;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:opacity .2s,box-shadow .2s}
+.pw-btn:hover{opacity:.85;box-shadow:0 0 20px rgba(122,0,255,0.4)}
 .pw-err{font-size:10px;color:#ff4d4d;font-family:'Space Mono',monospace;min-height:14px}
 .pw-close{font-size:10px;color:rgba(255,255,255,.25);cursor:pointer;font-family:'Space Mono',monospace}
 .pw-close:hover{color:rgba(255,255,255,.5)}
 
-#adminPanel{position:fixed;bottom:0;left:0;right:0;background:#090909;border-top:1px solid rgba(212,175,55,0.15);z-index:500;display:none;max-height:80vh;overflow-y:auto;animation:slideUp .35s both}
+/* ADMIN PANEL */
+#adminPanel{position:fixed;bottom:0;left:0;right:0;background:#090909;border-top:1px solid rgba(122,0,255,0.2);z-index:500;display:none;max-height:80vh;overflow-y:auto;animation:slideUp .35s both}
 #adminPanel.show{display:block}
 #adminPanel::-webkit-scrollbar{width:3px}
-#adminPanel::-webkit-scrollbar-thumb{background:rgba(212,175,55,0.3);border-radius:2px}
+#adminPanel::-webkit-scrollbar-thumb{background:rgba(122,0,255,0.4);border-radius:2px}
 
 .panel-wrap{max-width:700px;margin:0 auto;padding:18px 18px 28px}
-.panel-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(212,175,55,0.08)}
-.panel-title{font-family:'Space Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:3px}
+.panel-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(122,0,255,0.1)}
+.panel-title{font-family:'Space Mono',monospace;font-size:9px;color:var(--neon);letter-spacing:3px}
 .btn-close{background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;font-size:9px;padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .2s}
 .btn-close:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}
 
-.section{background:#0f0f0f;border:1px solid rgba(212,175,55,0.08);border-radius:12px;padding:14px;margin-bottom:10px}
+/* SECTIONS */
+.section{background:#0f0f0f;border:1px solid rgba(122,0,255,0.1);border-radius:12px;padding:14px;margin-bottom:10px}
 .sec-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer;user-select:none}
 .sec-icon{font-size:13px}
 .sec-label{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;flex:1}
@@ -95,33 +98,45 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .section.collapsed .sec-body{display:none}
 .section.collapsed .sec-arrow{transform:rotate(-90deg)}
 
+/* Fields */
 .row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
 .field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:100px}
 .flabel{font-size:9px;color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;letter-spacing:1px}
-.finput{background:#1a1a1a;border:1px solid rgba(212,175,55,0.12);border-radius:7px;padding:8px 10px;color:#fff;font-family:'Space Mono',monospace;font-size:10px;outline:none;transition:border-color .2s;width:100%}
-.finput:focus{border-color:rgba(212,175,55,0.4)}
+.finput{background:#1a1a1a;border:1px solid rgba(122,0,255,0.15);border-radius:7px;padding:8px 10px;color:#fff;font-family:'Space Mono',monospace;font-size:10px;outline:none;transition:border-color .2s;width:100%}
+.finput:focus{border-color:var(--gold)}
 .finput.big{font-size:12px;letter-spacing:2px}
 
-.img-upload{display:flex;align-items:center;justify-content:center;gap:6px;background:#1a1a1a;border:1px dashed rgba(212,175,55,0.25);border-radius:7px;padding:9px 12px;color:var(--gold);font-family:'Space Mono',monospace;font-size:9px;cursor:pointer;transition:background .2s;width:100%}
+/* Image upload */
+.img-upload{display:flex;align-items:center;justify-content:center;gap:6px;background:#1a1a1a;border:1px dashed rgba(122,0,255,0.3);border-radius:7px;padding:9px 12px;color:var(--gold);font-family:'Space Mono',monospace;font-size:9px;cursor:pointer;transition:background .2s;width:100%}
 .img-upload:hover{background:#222}
 .img-upload input{display:none}
 
+/* Color */
 .color-presets{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
 .cp{width:22px;height:22px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;flex-shrink:0}
 .cp:hover{transform:scale(1.2)}
 .cp.active{border-color:#fff}
 .cp-custom{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,.1);cursor:pointer;padding:2px;background:#1a1a1a}
 
-.save-btn{padding:7px 14px;border-radius:7px;background:var(--gold);border:none;color:#000;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity .2s,background .2s;white-space:nowrap;align-self:flex-end}
-.save-btn:hover{opacity:.85}
+/* Save btn per section */
+.save-btn{padding:7px 14px;border-radius:7px;background:var(--gold);border:none;color:#fff;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity .2s,background .2s,box-shadow .2s;white-space:nowrap;align-self:flex-end}
+.save-btn:hover{opacity:.85;box-shadow:0 0 15px rgba(122,0,255,0.3)}
 .save-btn.saved{background:#22c55e}
 
+/* Link section row */
 .link-sec{display:flex;gap:7px;align-items:center}
 .link-emoji{font-size:18px;flex-shrink:0;width:28px;text-align:center}
-.emoji-input{width:46px;background:#1a1a1a;border:1px solid rgba(212,175,55,0.12);border-radius:7px;padding:8px 6px;color:#fff;font-size:16px;text-align:center;outline:none;cursor:pointer;transition:border-color .2s}
-.emoji-input:focus{border-color:rgba(212,175,55,0.4)}
+.emoji-input{width:46px;background:#1a1a1a;border:1px solid rgba(122,0,255,0.15);border-radius:7px;padding:8px 6px;color:#fff;font-size:16px;text-align:center;outline:none;cursor:pointer;transition:border-color .2s}
+.emoji-input:focus{border-color:var(--gold)}
 
 #secretZone{position:fixed;bottom:0;right:0;width:50px;height:50px;z-index:400}
+
+/* SMOKE / DUST EFFECT */
+.smoke{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sm{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--neon)20 0%,transparent 70%);animation:smoke linear infinite;opacity:0}
+.s1{width:300px;height:300px;left:10%;bottom:-50px;animation-duration:12s}
+.s2{width:200px;height:200px;left:60%;bottom:-50px;animation-duration:15s;animation-delay:4s}
+.s3{width:250px;height:250px;left:80%;bottom:-50px;animation-duration:18s;animation-delay:8s}
 </style>
 </head>
 <body>
@@ -131,6 +146,11 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
   <div class="ptcl p1"></div><div class="ptcl p2"></div><div class="ptcl p3"></div>
   <div class="ptcl p4"></div><div class="ptcl p5"></div>
 </div>
+<div class="smoke">
+  <div class="sm s1"></div>
+  <div class="sm s2"></div>
+  <div class="sm s3"></div>
+</div>
 
 <div class="page">
   <div class="badge"><div class="bdot"></div><span class="btxt">Online</span></div>
@@ -139,9 +159,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
     <div class="ring1" id="ring1"></div>
     <div class="ring2" id="ring2"></div>
     <div class="av-img">
-      <img id="avImgEl" src="avatar.png" alt="51s8"
-        onerror="this.style.display='none';document.getElementById('avPh').style.display='flex'">
-      <div class="av-ph" id="avPh" style="display:none">51s8</div>
+      <img id="avImgEl" src="avatar.png" alt="51s8" onerror="this.style.display='none';document.getElementById('avPh').style.display='flex'" style="display: none;">
+      <div class="av-ph" id="avPh" style="display: flex;">51s8</div>
     </div>
   </div>
 
@@ -190,7 +209,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 <div id="secretZone"></div>
 
-<div id="pwOverlay">
+<!-- PASSWORD -->
+<div id="pwOverlay" class="">
   <div class="pw-box">
     <div class="pw-icon">🔐</div>
     <div class="pw-title">Admin Access</div>
@@ -201,13 +221,18 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
   </div>
 </div>
 
+<!-- ADMIN PANEL -->
 <div id="adminPanel">
   <div class="panel-wrap">
     <div class="panel-top">
       <div class="panel-title">⚙ لوحة التحكم</div>
-      <button class="btn-close" id="closeAdmin">✕ إغلاق</button>
+      <div style="display:flex;gap:8px">
+        <button class="save-btn" onclick="exportHTML()">⬇ تصدير</button>
+        <button class="btn-close" id="closeAdmin">✕ إغلاق</button>
+      </div>
     </div>
 
+    <!-- 1. ACCENT COLOR -->
     <div class="section" id="sec-color">
       <div class="sec-header" onclick="toggleSec('sec-color')">
         <span class="sec-icon">🎨</span>
@@ -216,15 +241,15 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
       <div class="sec-body">
         <div class="color-presets" id="cpresets">
-          <div class="cp active" style="background:#d4af37" data-color="#d4af37"></div>
+          <div class="cp active" style="background:#7a00ff" data-color="#7a00ff"></div>
+          <div class="cp" style="background:#b266ff" data-color="#b266ff"></div>
           <div class="cp" style="background:#ff4d4d" data-color="#ff4d4d"></div>
           <div class="cp" style="background:#00e5ff" data-color="#00e5ff"></div>
-          <div class="cp" style="background:#a855f7" data-color="#a855f7"></div>
           <div class="cp" style="background:#22c55e" data-color="#22c55e"></div>
           <div class="cp" style="background:#f97316" data-color="#f97316"></div>
           <div class="cp" style="background:#ec4899" data-color="#ec4899"></div>
           <div class="cp" style="background:#ffffff" data-color="#ffffff"></div>
-          <input type="color" class="cp-custom" id="colorInput" value="#d4af37">
+          <input type="color" class="cp-custom" id="colorInput" value="#7a00ff">
         </div>
         <div class="row">
           <button class="save-btn" onclick="saveSection('color')">حفظ اللون</button>
@@ -232,6 +257,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
     </div>
 
+    <!-- 2. AVATAR -->
     <div class="section" id="sec-avatar">
       <div class="sec-header" onclick="toggleSec('sec-avatar')">
         <span class="sec-icon">🖼</span>
@@ -246,6 +272,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
     </div>
 
+    <!-- 3. USERNAME -->
     <div class="section" id="sec-name">
       <div class="sec-header" onclick="toggleSec('sec-name')">
         <span class="sec-icon">✏️</span>
@@ -263,6 +290,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
     </div>
 
+    <!-- 4. TAG -->
     <div class="section" id="sec-tag">
       <div class="sec-header" onclick="toggleSec('sec-tag')">
         <span class="sec-icon">🏷</span>
@@ -280,6 +308,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
       </div>
     </div>
 
+    <!-- 5. LINKS (each separate) -->
     <div class="section" id="sec-lnk0">
       <div class="sec-header" onclick="toggleSec('sec-lnk0')">
         <span class="sec-icon" id="si0">🟣</span>
@@ -395,20 +424,23 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 
 <script>
 const PASS = '12345';
-let accentColor = '#d4af37';
+let accentColor = '#7a00ff';
 let clicks = 0, ct;
 
 function applyAccent(c) {
   accentColor = c;
   document.documentElement.style.setProperty('--gold', c);
+  const neon = c === '#7a00ff' ? '#b266ff' : c;
+  document.documentElement.style.setProperty('--neon', neon);
   document.getElementById('glowOrb').style.background =
-    `radial-gradient(ellipse,${c}28 0%,transparent 70%)`;
+    `radial-gradient(ellipse,${c}30 0%,${neon}15 40%,transparent 70%)`;
 }
 
 function toggleSec(id) {
   document.getElementById(id).classList.toggle('collapsed');
 }
 
+// Secret zone
 document.getElementById('secretZone').addEventListener('click', () => {
   clicks++; clearTimeout(ct);
   ct = setTimeout(() => clicks = 0, 1500);
@@ -438,6 +470,7 @@ function checkPass() {
 }
 document.getElementById('closeAdmin').onclick = () => document.getElementById('adminPanel').classList.remove('show');
 
+// Color
 document.querySelectorAll('#cpresets .cp').forEach(p => {
   p.addEventListener('click', () => {
     document.querySelectorAll('#cpresets .cp').forEach(x => x.classList.remove('active'));
@@ -451,6 +484,7 @@ document.getElementById('colorInput').oninput = e => {
   applyAccent(e.target.value);
 };
 
+// Live preview on type
 document.getElementById('unameInput').oninput = e => {
   document.getElementById('usernameEl').textContent = e.target.value || '51s8';
   document.getElementById('avPh').textContent = e.target.value || '51s8';
@@ -458,6 +492,7 @@ document.getElementById('unameInput').oninput = e => {
 document.getElementById('tagInput').oninput = e =>
   document.getElementById('tagEl').textContent = e.target.value.toUpperCase() || 'SRR';
 
+// Emoji live preview
 [0,1,2,3,4].forEach(i => {
   document.getElementById('e'+i).oninput = e => {
     document.getElementById('li'+i).textContent = e.target.value || '•';
@@ -470,6 +505,7 @@ document.getElementById('tagInput').oninput = e =>
   };
 });
 
+// Image
 document.getElementById('imgInput').onchange = e => {
   const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
@@ -484,6 +520,7 @@ document.getElementById('imgInput').onchange = e => {
   reader.readAsDataURL(file);
 };
 
+// Save functions
 function saveSection(type) {
   const d = JSON.parse(localStorage.getItem('s8_data') || '{}');
   if (type === 'color') {
@@ -547,6 +584,41 @@ function loadIntoPanel() {
   if (img) document.getElementById('imgBtnTxt').textContent = '✓ صورة محفوظة';
 }
 
+// Export HTML with embedded data
+function exportHTML() {
+  const html = document.documentElement.outerHTML;
+  const d = localStorage.getItem('s8_data') || '{}';
+  const img = localStorage.getItem('s8_img');
+  
+  let exportDoc = html;
+  
+  // Replace default values with saved data
+  if (d.uname) {
+    exportDoc = exportDoc.replace(/id="usernameEl">[^<]+</g, 'id="usernameEl">' + d.uname + '<');
+    exportDoc = exportDoc.replace(/id="avPh"[^>]*>[^<]+</g, 'id="avPh" style="display:none">' + d.uname + '<');
+  }
+  if (d.tag) {
+    exportDoc = exportDoc.replace(/id="tagEl">[^<]+</g, 'id="tagEl">' + d.tag + '<');
+  }
+  if (d.color) {
+    exportDoc = exportDoc.replace(/--gold:#[^;]+/, '--gold:' + d.color);
+  }
+  if (img) {
+    exportDoc = exportDoc.replace(/src="avatar.png"/g, 'src="' + img + '"');
+  }
+  
+  // Download
+  const blob = new Blob([exportDoc], {type: 'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'index.html';
+  a.click();
+  URL.revokeObjectURL(url);
+  alert('✓ تم تصدير الصفحة!');
+}
+
+// Boot: apply saved
 (function(){
   const d = JSON.parse(localStorage.getItem('s8_data') || '{}');
   if (d.color) applyAccent(d.color);
@@ -560,7 +632,10 @@ function loadIntoPanel() {
   });
   const img = localStorage.getItem('s8_img');
   if (img) { const el = document.getElementById('avImgEl'); el.src = img; el.style.display = 'block'; document.getElementById('avPh').style.display = 'none'; }
+  // Apply default purple theme
+  if (!d.color) applyAccent('#7a00ff');
 })();
 </script>
-</body>
-</html>
+
+
+</body></html>
