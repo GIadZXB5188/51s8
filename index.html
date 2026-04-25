@@ -706,10 +706,13 @@ function checkTwitchStream() {
   img.src = 'https://static-cdn.jtvnw.net/previews-ttv/live_user_51t8-320x180.jpg?v=' + Date.now();
   
   img.onload = function() {
-    dot.classList.add('live');
-    status.classList.add('live');
-    status.textContent = 'LIVE';
-    pill.classList.add('live');
+    // Verify it's not a 404 by checking dimensions
+    if (img.width > 0 && img.height > 0) {
+      dot.classList.add('live');
+      status.classList.add('live');
+      status.textContent = 'LIVE';
+      pill.classList.add('live');
+    }
   };
   
   img.onerror = function() {
@@ -726,27 +729,31 @@ function checkKickStream() {
   const dot = document.getElementById('kickDot');
   const status = document.getElementById('kickStatus');
   
+  // First try Kick's main CDN
   const img = new Image();
-  // Kick uses different CDN format
-  img.src = 'https://usdcImg0.jns-hd.com/live_user_51s8-320x180.jpg?v=' + Date.now();
+  img.src = 'https://kick.com/img/live/51s8-320x180.jpg?v=' + Date.now();
   
   img.onload = function() {
-    dot.classList.add('live');
-    status.classList.add('live');
-    status.textContent = 'LIVE';
-    pill.classList.add('live');
-  };
-  
-  img.onerror = function() {
-    // Try alternate Kick CDN
-    const img2 = new Image();
-    img2.src = 'https://kick.com/img/live/51s8-320x180.jpg?v=' + Date.now();
-    
-    img2.onload = function() {
+    if (img.width > 0 && img.height > 0) {
       dot.classList.add('live');
       status.classList.add('live');
       status.textContent = 'LIVE';
       pill.classList.add('live');
+    }
+  };
+  
+  img.onerror = function() {
+    // Try alternate CDN
+    const img2 = new Image();
+    img2.src = 'https://usher.jns-hd.com/live/51s8-320x180.jpg?v=' + Date.now();
+    
+    img2.onload = function() {
+      if (img2.width > 0 && img2.height > 0) {
+        dot.classList.add('live');
+        status.classList.add('live');
+        status.textContent = 'LIVE';
+        pill.classList.add('live');
+      }
     };
     
     img2.onerror = function() {
@@ -760,6 +767,24 @@ function checkKickStream() {
 
 // Check both streams
 function checkStreams() {
+  // Reset to OFFLINE first
+  const twitchDot = document.getElementById('twitchDot');
+  const kickDot = document.getElementById('kickDot');
+  const twitchStatus = document.getElementById('twitchStatus');
+  const kickStatus = document.getElementById('kickStatus');
+  const streamTwitch = document.getElementById('streamTwitch');
+  const streamKick = document.getElementById('streamKick');
+  
+  twitchDot.classList.remove('live');
+  kickDot.classList.remove('live');
+  twitchStatus.classList.remove('live');
+  kickStatus.classList.remove('live');
+  twitchStatus.textContent = 'OFFLINE';
+  kickStatus.textContent = 'OFFLINE';
+  streamTwitch.classList.remove('live');
+  streamKick.classList.remove('live');
+  
+  // Then check
   checkTwitchStream();
   checkKickStream();
 }
