@@ -1,0 +1,391 @@
+!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>51s8</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap\"><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--gold:#b266ff;--bg:#1a1a2e;--surface:#16213e;--border:rgba(122,0,255,0.3);--neon:#7a00ff}html,body{min-height:100%;background:var(--bg);color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden}body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(122,0,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(122,0,255,0.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:0}@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes spinR{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes glow{0%,100%{box-shadow:0 0 15px var(--gold)}50%{box-shadow:0 0 35px var(--neon)}}@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}@keyframes drift{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-120px);opacity:0}}@keyframes expand{from{width:0;opacity:0}to{width:60px;opacity:1}}@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}@keyframes smoke{0%{transform:translateY(0) scale(1);opacity:0}50%{opacity:.15}100%{transform:translateY(-300px) scale(2);opacity:0}}@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:0.6}90%{opacity:0.6}100%{transform:translateY(-100vh) translateX(30px);opacity:0}}@keyframes smRise{0%{transform:translateY(0) scale(1);opacity:0}50%{opacity:.05}100%{transform:translateY(-300px) scale(2);opacity:0}}@keyframes floatParticle{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.2)}}.page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 120px}.glow-orb{position:fixed;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:250px;background:radial-gradient(ellipse,var(--gold)30 0%,var(--neon)15 40%,transparent 70%);pointer-events:none;animation:pulse 4s ease-in-out infinite;z-index:0;transition:background .5s}.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.ptcl{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--neon);animation:drift linear infinite;opacity:0}.p1{left:10%;bottom:10%;animation-duration:6s}.p2{left:30%;bottom:20%;animation-duration:8s;animation-delay:1s}.p3{left:50%;bottom:5%;animation-duration:5s;animation-delay:.5s}.p4{left:70%;bottom:15%;animation-duration:7s;animation-delay:2s}.p5{left:90%;bottom:25%;animation-duration:6s;animation-delay:3s}.particle-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.particle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--neon);opacity:0.6;animation:particleDrift linear infinite}@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:0.6}90%{opacity:0.6}100%{transform:translateY(-100vh) translateX(30px);opacity:0}}.smoke{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.sm{position:absolute;border-radius:50%;animation:smRise linear infinite;opacity:0}.s1{width:200px;height:200px;left:5%;bottom:-50px;animation-duration:15s}.s2{width:150px;height:150px;left:40%;bottom:-50px;animation-duration:18s;animation-delay:5s}.s3{width:250px;height:250px;left:75%;bottom:-50px;animation-duration:12s;animation-delay:10s}.float{animation:floatease-in-out infinite}@keyframes floate{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--neon);border-radius:20px;padding:5px 16px;margin-bottom:32px;animation:fadeUp .6s both}.bdot{width:7px;height:7px;border-radius:50%;background:var(--neon);animation:pulse 1.5s infinite}.btxt{font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px;transition:color .4s}.av-wrap{position:relative;width:100px;height:100px;margin-bottom:18px;animation:fadeUp .7s .1s both,float 4s 1s ease-in-out infinite}.ring1{position:absolute;inset:0;border-radius:50%;border:1.5px solid transparent;border-top-color:var(--gold);border-right-color:var(--neon);animation:spin 6s linear infinite;transition:border-color .4s}.ring2{position:absolute;inset:6px;border-radius:50%;border:1px solid transparent;border-bottom-color:var(--gold);animation:spinR 4s linear infinite;transition:border-color .4s}.av-img{position:absolute;inset:13px;border-radius:50%;overflow:hidden;border:1.5px solid var(--neon);animation:glow 2.5s ease-in-out infinite}.av-img img{width:100%;height:100%;object-fit:cover;border-radius:50%}.av-ph{width:100%;height:100%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--neon);letter-spacing:1px;border-radius:50%}.username{font-family:'Space Mono',monospace;font-size:24px;font-weight:700;letter-spacing:5px;color:#fff;animation:fadeUp .7s .2s both;margin-bottom:4px;transition:all .3s}.tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:6px;color:var(--neon);margin-bottom:18px;animation:fadeUp .7s .3s both;transition:color .4s}.divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--neon),transparent);margin-bottom:20px;animation:expand .8s .4s both}.soc-row{display:flex;gap:10px;margin-bottom:30px;animation:fadeUp .7s .5s both}.soc{width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color .2s,transform .2s,box-shadow .2s}.soc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 4px 20px rgba(122,0,255,.4)}@keyframes glowEnhanced{0%,100%{box-shadow:0 0 15px var(--gold)}50%{box-shadow:0 0 35px var(--neon),0 0 50px rgba(122,0,255,.3)}}.links{width:100%;max-width:320px;display:flex;flex-direction:column;gap:9px}.lnk{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--border);text-decoration:none;transition:all .2s;opacity:0;animation:fadeUp .6s both}.lnk:nth-child(1){animation-delay:.65s}.lnk:nth-child(2){animation-delay:.78s}.lnk:nth-child(3){animation-delay:.91s}.lnk:nth-child(4){animation-delay:1.04s}.lnk:nth-child(5){animation-delay:1.17s}.lnk:hover{border-color:var(--gold);background:#12122a;transform:translateX(5px);box-shadow:0 0 20px rgba(122,0,255,.25)}.lnk:hover .arr{color:var(--neon);transform:translateX(4px)}.licon{width:34px;height:34px;border-radius:8px;background:#1a1a2e;border:1px solid rgba(122,0,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}.lbody{flex:1}.lname{font-family:'Space Mono',monospace;font-size:14px;font-weight:600;color:#fff}.lurl{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.28);margin-top:1px}.arr{font-size:18px;color:rgba(122,0,255,.35);transition:all .2s}@keyframes arrGlow{0%,100%{color:rgba(122,0,255,.35)}50%{color:var(--neon);text-shadow:0 0 10px var(--neon)}}.arr{animation:arrGlow 2s ease-in-out infinite}.foot{margin-top:32px;display:flex;align-items:center;gap:10px;animation:fadeUp .7s 1.3s both}.fline{width:28px;height:.5px;background:rgba(122,0,255,.3)}.ftxt{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px}#pwOverlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px)}.pw-box{background:#0f0f1e;border:1px solid rgba(122,0,255,.25);border-radius:20px;padding:32px 28px;width:280px;display:flex;flex-direction:column;align-items:center;gap:14px;animation:slideDown .4s}.pw-icon{font-size:28px}.pw-title{font-family:'Space Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:3px}.pw-input{width:100%;background:#1a1a2e;border:1px solid rgba(122,0,255,.2);border-radius:10px;padding:11px 14px;color:#fff;font-family:'Space Mono',monospace;font-size:14px;letter-spacing:4px;text-align:center;outline:none;transition:border-color .2s}.pw-input:focus{border-color:var(--gold)}.pw-btn{width:100%;padding:11px;border-radius:10px;background:var(--gold);border:none;color:#fff;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;cursor:pointer;transition:opacity .2s,box-shadow .2s}.pw-btn:hover{opacity:.85;box-shadow:0 0 20px rgba(122,0,255,.4)}.pw-err{font-size:10px;color:#ff4d4d;font-family:'Space Mono',monospace;min-height:14px}.pw-close{font-size:10px;color:rgba(255,255,255,.25);cursor:pointer;font-family:'Space Mono',monospace}#adminPanel{position:fixed;bottom:0;left:0;right:0;background:#09091a;border-top:1px solid rgba(122,0,255,.15);z-index:500;display:none;max-height:80vh;overflow-y:auto;animation:slideUp .35s both}.panel-wrap{max-width:700px;margin:0 auto;padding:18px 18px 28px}.panel-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(122,0,255,.08)}.panel-title{font-family:'Space Mono',monospace;font-size:9px;color:var(--neon);letter-spacing:3px}.btn-close{background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;font-size:9px;padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .2s}.btn-close:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}.section{background:#0f0f1e;border:1px solid rgba(122,0,255,.08);border-radius:12px;padding:14px;margin-bottom:10px}.sec-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer;user-select:none}.sec-icon{font-size:13px}.sec-label{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;flex:1}.sec-arrow{font-size:11px;color:rgba(255,255,255,.2);transition:transform .2s}.sec-body{display:flex;flex-direction:column;gap:8px}.section.collapsed .sec-body{display:none}.section.collapsed .sec-arrow{transform:rotate(-90deg)}/* Fields */.row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:100px}.flabel{font-size:9px;color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;letter-spacing:1px}.finput{background:#1a1a2e;border:1px solid rgba(122,0,255,.15);border-radius:7px;padding:8px 10px;color:#fff;font-family:'Space Mono',monospace;font-size:10px;outline:none;transition:border-color .2s;width:100%}.finput:focus{border-color:var(--gold)}.finput.big{font-size:12px;letter-spacing:2px}/* Image upload */.img-upload{display:flex;align-items:center;justify-content:flex-start;gap:6px;background:#1a1a2e;border:1px dashed rgba(122,0,255,.3);border-radius:7px;padding:9px 12px;color:var(--gold);font-family:'Space Mono',monospace;font-size:9px;cursor:pointer;transition:background .2s;width:100%}.img-upload:hover{background:#222}.img-upload input{display:none}/* Color */.color-presets{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.cp{width:22px;height:22px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;flex-shrink:0}.cp:hover{transform:scale(1.2)}.cp.active{border-color:#fff}.cp-custom{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,.1);cursor:pointer;padding:2px;background:#1a1a2e}/* Save btn per section */.save-btn{padding:7px 14px;border-radius:7px;background:var(--gold);border:none;color:#fff;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity .2s,background .2s,box-shadow .2s;white-space:nowrap;align-self:flex-end}.save-btn:hover{opacity:.85;box-shadow:0 0 15px rgba(122,0,255,.3)}.save-btn.saved{background:#22c55e}/* Link section row */.link-sec{display:flex;gap:7px;align-items:center}.link-emoji{font-size:18px;flex-shrink:0;width:28px;text-align:center}.emoji-input{width:46px;background:#1a1a2e;border:1px solid rgba(122,0,255,.2);border-radius:7px;padding:8px 6px;color:#fff;font-size:16px;text-align:center;outline:none;cursor:pointer;transition:border-color .2s}.emoji-input:focus{border-color:var(--gold)}#secretZone{position:fixed;bottom:0;right:0;width:50px;height:50px;z-index:400}/* SMOKE / DUST EFFECT */.smoke{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}.sm{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--neon)20 0%,transparent 70%);animation:smoke linear infinite;opacity:0}.s1{width:300px;height:300px;left:10%;bottom:-50px;animation-duration:12s}.s2{width:200px;height:200px;left:60%;bottom:-50px;animation-duration:15s;animation-delay:4s}.s3{width:250px;height:250px;left:80%;bottom:-50px;animation-duration:18s;animation-delay:8s}@keyframes smoke{0%{transform:translateY(0) scale(1);opacity:0}50%{opacity:.15}100%{transform:translateY(-300px) scale(2);opacity:0}}/* ADMIN PANEL */#adminPanel{position:fixed;bottom:0;left:0;right:0;background:#09091a;border-top:1px solid rgba(122,0,255,.15);z-index:500;display:none;max-height:80vh;overflow-y:auto;animation:slideUp .35s both}.panel-wrap{max-width:700px;margin:0 auto;padding:18px 18px 28px}.panel-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(122,0,255,.08)}.panel-title{font-family:'Space Mono',monospace;font-size:9px;color:var(--neon);letter-spacing:3px}.btn-close{background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;font-size:9px;padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .2s}.btn-close:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}/* SECTIONS */.section{background:#0f0f1e;border:1px solid rgba(212,175,55,.08);border-radius:12px;padding:14px;margin-bottom:10px}.sec-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;cursor:pointer;user-select:none}.sec-icon{font-size:13px}.sec-label{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;flex:1}.sec-arrow{font-size:11px;color:rgba(255,255,255,.2);transition:transform .2s}.sec-body{display:flex;flex-direction:column;gap:8px}.section.collapsed .sec-body{display:none}.section.collapsed .sec-arrow{transform:rotate(-90deg)}/* Fields */.row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:100px}.flabel{font-size:9px;color:rgba(255,255,255,.3);font-family:'Space Mono',monospace;letter-spacing:1px}.finput{background:#1a1a2e;border:1px solid rgba(122,0,255,.15);border-radius:7px;padding:8px 10px;color:#fff;font-family:'Space Mono',monospace;font-size:10px;outline:none;transition:border-color .2s;width:100%}.finput:focus{border-color:var(--gold)}.finput.big{font-size:12px;letter-spacing:2px}/* Image upload */.img-upload{display:flex;align-items:center;justify-content:flex-start;gap:6px;background:#1a1a2e;border:1px dashed rgba(122,0,255,.3);border-radius:7px;padding:9px 12px;color:var(--gold);font-family:'Space Mono',monospace;font-size:9px;cursor:pointer;transition:background .2s;width:100%}.img-upload:hover{background:#222}.img-upload input{display:none}/* Color */.color-presets{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.cp{width:22px;height:22px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;flex-shrink:0}.cp:hover{transform:scale(1.2)}.cp.active{border-color:#fff}.cp-custom{width:28px;height:28px;border-radius:6px;border:1px solid rgba(255,255,255,.1);cursor:pointer;padding:2px;background:#1a1a2e}/* Save btn per section */.save-btn{padding:7px 14px;border-radius:7px;background:var(--gold);border:none;color:#fff;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity .2s,background .2s,box-shadow .2s;white-space:nowrap;align-self:flex-end}.save-btn:hover{opacity:.85;box-shadow:0 0 15px rgba(122,0,255,.3)}.save-btn.saved{background:#22c55e}</style></head><body>
+
+<div class="glow-orb" id="glowOrb"></div>
+<div class="particles">
+  <div class="ptcl p1"></div><div class="ptcl p2"></div><div class="ptcl p3"></div>
+  <div class="ptcl p4"></div><div class="ptcl p5"></div>
+</div>
+<div class="smoke">
+  <div class="sm s1"></div>
+  <div class="sm s2"></div>
+  <div class="sm s3"></div>
+</div>
+
+<div class="page">
+  <div class="badge"><div class="bdot"></div><span class="btxt">Online</span></div>
+
+  <div class="av-wrap">
+    <div class="ring1" id="ring1"></div>
+    <div class="ring2" id="ring2"></div>
+    <div class="av-img">
+      <img id="avImgEl" src="avatar.png" alt="51s8"
+        onerror="this.style.display='none';document.getElementById('avPh').style.display='flex'">
+      <div class="av-ph" id="avPh" style="display:flex">51s8</div>
+    </div>
+  </div>
+
+  <div class="username" id="usernameEl">51s8</div>
+  <div class="tag" id="tagEl">SRR</div>
+  <div class="divider"></div>
+
+  <div class="soc-row">
+    <a class="soc" id="soc0" href="https://www.snapchat.com/@cood966">👻</a>
+    <a class="soc" id="soc1" href="https://www.twitch.tv/51t8">🟣</a>
+    <a class="soc" id="soc2" href="https://x.com/51s88">✕</a>
+    <a class="soc" id="soc3" href="https://www.youtube.com/channel/UC-fPNAYgQ8uJXhdcGqDYtLg">▶</a>
+    <a class="soc" id="soc4" href="https://discord.com/users/1026497328951074826">💬</a>
+  </div>
+
+  <div class="links">
+    <a class="lnk" id="lnk0" href="https://www.twitch.tv/51t8">
+      <div class="licon" id="li0">🟣</div>
+      <div class="lbody"><div class="lname" id="ln0">Twitch</div><div class="lurl" id="lu0" style="display:none">twitch.tv/51t8</div></div>
+      <div class="arr">›</div>
+    </a>
+    <a class="lnk" id="lnk1" href="https://www.youtube.com/channel/UC-fPNAYgQ8uJXhdcGqDYtLg">
+      <div class="licon" id="li1">▶</div>
+      <div class="lbody"><div class="lname" id="ln1">YouTube</div><div class="lurl" id="lu1" style="display:none">youtube.com</div></div>
+      <div class="arr">›</div>
+    </a>
+    <a class="lnk" id="lnk2" href="https://x.com/51s88">
+      <div class="licon" id="li2">✕</div>
+      <div class="lbody"><div class="lname" id="ln2">X · Twitter</div><div class="lurl" id="lu2" style="display:none">@51s88</div></div>
+      <div class="arr">›</div>
+    </a>
+    <a class="lnk" id="lnk3" href="https://www.snapchat.com/@cood966">
+      <div class="licon" id="li3">👻</div>
+      <div class="lbody"><div class="lname" id="ln3">Snapchat</div><div class="lurl" id="lu3" style="display:none">@cood966</div></div>
+      <div class="arr">›</div>
+    </a>
+    <a class="lnk" id="lnk4" href="https://discord.com/users/1026497328951074826">
+      <div class="licon" id="li4">💬</div>
+      <div class="lbody"><div class="lname" id="ln4">Discord</div><div class="lurl" id="lu4" style="display:none">51t8</div></div>
+      <div class="arr">›</div>
+    </a>
+  </div>
+
+  <div class="foot"><div class="fline"></div><div class="ftxt">51s8</div><div class="fline"></div></div>
+</div>
+
+<div id="secretZone"></div>
+
+<!-- PASSWORD -->
+<div id="pwOverlay">
+  <div class="pw-box">
+    <div class="pw-icon">🔐</div>
+    <div class="pw-title">Admin Access</div>
+    <input class="pw-input" id="pwInput" type="password" placeholder="••••••" maxlength="20" autocomplete="off">
+    <div class="pw-err" id="pwErr"></div>
+    <button class="pw-btn" id="pwBtn">دخول</button>
+    <div class="pw-close" id="pwClose">إلغاء</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="panel-wrap">
+    <div class="panel-top">
+      <div class="panel-title">⚙ لوحة التحكم</div>
+      <button class="btn-close" id="closeAdmin">✕ إغلاق</button>
+    </div>
+
+    <!-- 1. ACCENT COLOR -->
+    <div class="section" id="sec-color">
+      <div class="sec-header" onclick="toggleSec('sec-color')">
+        <span class="sec-icon">🎨</span>
+        <span class="sec-label">اللون الرئيسي</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="color-presets" id="cpresets">
+          <div class="cp active" style="background:#b266ff" data-color="#b266ff"></div>
+          <div class="cp" style="background:#ff4d4d" data-color="#ff4d4d"></div>
+          <div class="cp" style="background:#00e5ff" data-color="#00e5ff"></div>
+          <div class="cp" style="background:#a855f7" data-color="#a855f7"></div>
+          <div class="cp" style="background:#22c55e" data-color="#22c55e"></div>
+          <div class="cp" style="background:#f97316" data-color="#f97316"></div>
+          <div class="cp" style="background:#ec4899" data-color="#ec4899"></div>
+          <div class="cp" style="background:#ffffff" data-color="#ffffff"></div>
+          <input type="color" class="cp-custom" id="colorInput" value="#b266ff">
+        </div>
+        <div class="row">
+          <button class="save-btn" onclick="saveSection('color')">حفظ اللون</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. AVATAR -->
+    <div class="section" id="sec-avatar">
+      <div class="sec-header" onclick="toggleSec('sec-avatar')">
+        <span class="sec-icon">🖼</span>
+        <span class="sec-label">الصورة الشخصية</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <label class="img-upload">
+          <span id="imgBtnTxt">↑ اختر صورة من جهازك</span>
+          <input type="file" accept="image/*" id="imgInput">
+        </label>
+      </div>
+    </div>
+
+    <!-- 3. USERNAME -->
+    <div class="section" id="sec-name">
+      <div class="sec-header" onclick="toggleSec('sec-name')">
+        <span class="sec-icon">✏️</span>
+        <span class="sec-label">الاسم</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="row">
+          <div class="field">
+            <div class="flabel">الاسم الظاهر</div>
+            <input class="finput big" id="unameInput" type="text" value="51s8" maxlength="20">
+          </div>
+          <button class="save-btn" onclick="saveSection('name')">حفظ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. TAG -->
+    <div class="section" id="sec-tag">
+      <div class="sec-header" onclick="toggleSec('sec-tag')">
+        <span class="sec-icon">🏷</span>
+        <span class="sec-label">النص تحت الاسم</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="row">
+          <div class="field">
+            <div class="flabel">النص</div>
+            <input class="finput big" id="tagInput" type="text" value="SRR" maxlength="30">
+          </div>
+          <button class="save-btn" onclick="saveSection('tag')">حفظ</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. LINKS (each separate) -->
+    <div class="section" id="sec-lnk0">
+      <div class="sec-header" onclick="toggleSec('sec-lnk0')">
+        <span class="sec-icon" id="si0">🟣</span>
+        <span class="sec-label">رابط 1 — Twitch</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="link-sec">
+          <input class="emoji-input" id="e0" value="🟣" maxlength="2" title="الأيقونة">
+          <div class="field">
+            <div class="flabel">الاسم</div>
+            <input class="finput" id="n0" value="Twitch">
+          </div>
+        </div>
+        <div class="field">
+          <div class="flabel">الرابط</div>
+          <input class="finput" id="h0" value="https://www.twitch.tv/51t8">
+        </div>
+        <div class="row"><button class="save-btn" onclick="saveLink(0)">حفظ الرابط</button></div>
+      </div>
+    </div>
+
+    <div class="section" id="sec-lnk1">
+      <div class="sec-header" onclick="toggleSec('sec-lnk1')">
+        <span class="sec-icon" id="si1">▶</span>
+        <span class="sec-label">رابط 2 — YouTube</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="link-sec">
+          <input class="emoji-input" id="e1" value="▶" maxlength="2" title="الأيقونة">
+          <div class="field">
+            <div class="flabel">الاسم</div>
+            <input class="finput" id="n1" value="YouTube">
+          </div>
+        </div>
+        <div class="field">
+          <div class="flabel">الرابط</div>
+          <input class="finput" id="h1" value="https://www.youtube.com/channel/UC-fPNAYgQ8uJXhdcGqDYtLg">
+        </div>
+        <div class="row"><button class="save-btn" onclick="saveLink(1)">حفظ الرابط</button></div>
+      </div>
+    </div>
+
+    <div class="section" id="sec-lnk2">
+      <div class="sec-header" onclick="toggleSec('sec-lnk2')">
+        <span class="sec-icon" id="si2">✕</span>
+        <span class="sec-label">رابط 3 — X · Twitter</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="link-sec">
+          <input class="emoji-input" id="e2" value="✕" maxlength="2" title="الأيقونة">
+          <div class="field">
+            <div class="flabel">الاسم</div>
+            <input class="finput" id="n2" value="X · Twitter">
+          </div>
+        </div>
+        <div class="field">
+          <div class="flabel">الرابط</div>
+          <input class="finput" id="h2" value="https://x.com/51s88">
+        </div>
+        <div class="row"><button class="save-btn" onclick="saveLink(2)">حفظ الرابط</button></div>
+      </div>
+    </div>
+
+    <div class="section" id="sec-lnk3">
+      <div class="sec-header" onclick="toggleSec('sec-lnk3')">
+        <span class="sec-icon" id="si3">👻</span>
+        <span class="sec-label">رابط 4 — Snapchat</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="link-sec">
+          <input class="emoji-input" id="e3" value="👻" maxlength="2" title="الأيقونة">
+          <div class="field">
+            <div class="flabel">الاسم</div>
+            <input class="finput" id="n3" value="Snapchat">
+          </div>
+        </div>
+        <div class="field">
+          <div class="flabel">الرابط</div>
+          <input class="finput" id="h3" value="https://www.snapchat.com/@cood966">
+        </div>
+        <div class="row"><button class="save-btn" onclick="saveLink(3)">حفظ الرابط</button></div>
+      </div>
+    </div>
+
+    <div class="section" id="sec-lnk4">
+      <div class="sec-header" onclick="toggleSec('sec-lnk4')">
+        <span class="sec-icon" id="si4">💬</span>
+        <span class="sec-label">رابط 5 — Discord</span>
+        <span class="sec-arrow">▾</span>
+      </div>
+      <div class="sec-body">
+        <div class="link-sec">
+          <input class="emoji-input" id="e4" value="💬" maxlength="2" title="الأيقونة">
+          <div class="field">
+            <div class="flabel">الاسم</div>
+            <input class="finput" id="n4" value="Discord">
+          </div>
+        </div>
+        <div class="field">
+          <div class="flabel">الرابط</div>
+          <input class="finput" id="h4" value="https://discord.com/users/1026497328951074826">
+        </div>
+        <div class="row"><button class="save-btn" onclick="saveLink(4)">حفظ الرابط</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const PASS = '12345';
+let accentColor = '#b266ff';
+let clicks = 0, ct;
+
+function applyAccent(c) {
+  accentColor = c;
+  const neon = c === '#b266ff' ? '#7a00ff' : c;
+  document.documentElement.style.setProperty('--gold', accentColor);
+  document.documentElement.style.setProperty('--neon', neon);
+  document.getElementById('glowOrb').style.background =
+    `radial-gradient(ellipse,${accentColor}30 0%,${neon}15 40%,transparent 70%)`;
+}
+function toggleSec(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+
+async function checkTwitchStream() {
+  const pill = document.getElementById('streamTwitch');
+  const dot = document.getElementById('twitchDot');
+  const status = document.getElementById('twitchStatus');
+  
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  const cacheBuster = '__cb=' + Date.now() + Math.random();
+  img.src = 'https://static-cdn.jtvnw.net/previews-ttv/live_user_51t8-320x180.jpg?' + cacheBuster;
+  
+  img.onload = function() {
+    if (img.naturalWidth > 100 && img.naturalHeight > 50) {
+      dot.classList.add('live');
+      status.classList.add('live');
+      status.textContent = 'LIVE';
+      pill.classList.add('live');
+    } else {
+      dot.classList.remove('live');
+      status.classList.remove('live');
+      status.textContent = 'OFFLINE';
+      pill.classList.remove('live');
+    }
+  };
+  
+  img.onerror = function() {
+    dot.classList.remove('live');
+    status.classList.remove('live');
+    status.textContent = 'OFFLINE';
+    pill.classList.remove('live');
+  };
+  
+  img.src = img.src;
+}
+
+function checkStreams() {
+  checkTwitchStream();
+}
+checkStreams();
+setInterval(checkStreams, 30000);
+
+function exportHTML() {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = document.documentElement.outerHTML;
+  
+  const d = JSON.parse(localStorage.getItem('s8_data') || '{}');
+  const img = localStorage.getItem('s8_img');
+  
+  let exportDoc = tempDiv.innerHTML;
+  
+  if (d.uname) {
+    exportDoc = exportDoc.replace(/id="usernameEl">[^<]+</g, 'id="usernameEl">' + d.uname + '<');
+    exportDoc = exportDoc.replace(/id="avPh"[^>]*>[^<]+</g, 'id="avPh" style="display:none">' + d.uname + '<');
+  }
+  if (d.tag) {
+    exportDoc = exportDoc.replace(/id="tagEl">[^<]+</g, 'id="tagEl">' + d.tag + '<');
+  }
+  if (d.color) {
+    exportDoc = exportDoc.replace(/--gold:[^;]+/, '--gold:' + d.color);
+  }
+  if (img) {
+    exportDoc = exportDoc.replace(/src="avatar.png"/g, 'src="' + img + '"');
+  }
+  
+  const blob = new Blob([exportDoc], {type: 'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'index.html';
+  a.click();
+  URL.revokeObjectURL(url);
+  alert('✓ تم تصدير الصفحة!');
+}
+
+// Boot
+(function(){
+  const d = JSON.parse(localStorage.getItem('s8_data') || '{}');
+  if (d.color) applyAccent(d.color);
+  if (d.uname) { document.getElementById('usernameEl').textContent = d.uname; document.getElementById('avPh').textContent = d.uname; }
+  if (d.tag) document.getElementById('tagEl').textContent = d.tag;
+  if (d.links) d.links.forEach((l,i) => {
+    if (!l) return;
+    if (l.name) document.getElementById('ln'+i).textContent = l.name;
+    if (l.href) { document.getElementById('lnk'+i).href = l.href; document.getElementById('soc'+i).href = l.href; document.getElementById('lu'+i).textContent = l.href.replace('https://','').replace('http://',''); }
+    if (l.emoji) { document.getElementById('li'+i).textContent = l.emoji; document.getElementById('soc'+i).textContent = l.emoji; }
+  });
+  const img = localStorage.getItem('s8_img');
+  if (img) { const el = document.getElementById('avImgEl'); el.src = img; el.style.display = 'block'; document.getElementById('avPh').style.display = 'none'; }
+  // Default accent
+  if (!d.color) applyAccent('#b266ff');
+})();
+</script>
+</body>
+</html>
