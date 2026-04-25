@@ -702,16 +702,24 @@ function checkTwitchStream() {
   const dot = document.getElementById('twitchDot');
   const status = document.getElementById('twitchStatus');
   
-  const img = new Image();
-  img.src = 'https://static-cdn.jtvnw.net/previews-ttv/live_user_51t8-320x180.jpg?v=' + Date.now();
+  const img = document.createElement('img');
+  img.crossOrigin = 'anonymous';
+  // Use timestamp and random to prevent cache
+  const cacheBuster = '__cb=' + Date.now() + Math.random();
+  img.src = 'https://static-cdn.jtvnw.net/previews-ttv/live_user_51t8-320x180.jpg?' + cacheBuster;
   
   img.onload = function() {
-    // Verify it's not a 404 by checking dimensions
-    if (img.width > 0 && img.height > 0) {
+    // Check if this is a valid image (at least 100x100)
+    if (img.naturalWidth > 100 && img.naturalHeight > 50) {
       dot.classList.add('live');
       status.classList.add('live');
       status.textContent = 'LIVE';
       pill.classList.add('live');
+    } else {
+      dot.classList.remove('live');
+      status.classList.remove('live');
+      status.textContent = 'OFFLINE';
+      pill.classList.remove('live');
     }
   };
   
@@ -721,6 +729,8 @@ function checkTwitchStream() {
     status.textContent = 'OFFLINE';
     pill.classList.remove('live');
   };
+  
+  img.src = img.src; // Trigger load
 }
 
 // Check Kick stream
@@ -729,39 +739,30 @@ function checkKickStream() {
   const dot = document.getElementById('kickDot');
   const status = document.getElementById('kickStatus');
   
-  // First try Kick's main CDN
-  const img = new Image();
-  img.src = 'https://kick.com/img/live/51s8-320x180.jpg?v=' + Date.now();
+  const img = document.createElement('img');
+  img.crossOrigin = 'anonymous';
+  const cacheBuster = '__cb=' + Date.now() + Math.random();
+  img.src = 'https://kick.com/img/live/51s8-320x180.jpg?' + cacheBuster;
   
   img.onload = function() {
-    if (img.width > 0 && img.height > 0) {
+    if (img.naturalWidth > 100 && img.naturalHeight > 50) {
       dot.classList.add('live');
       status.classList.add('live');
       status.textContent = 'LIVE';
       pill.classList.add('live');
-    }
-  };
-  
-  img.onerror = function() {
-    // Try alternate CDN
-    const img2 = new Image();
-    img2.src = 'https://usher.jns-hd.com/live/51s8-320x180.jpg?v=' + Date.now();
-    
-    img2.onload = function() {
-      if (img2.width > 0 && img2.height > 0) {
-        dot.classList.add('live');
-        status.classList.add('live');
-        status.textContent = 'LIVE';
-        pill.classList.add('live');
-      }
-    };
-    
-    img2.onerror = function() {
+    } else {
       dot.classList.remove('live');
       status.classList.remove('live');
       status.textContent = 'OFFLINE';
       pill.classList.remove('live');
-    };
+    }
+  };
+  
+  img.onerror = function() {
+    dot.classList.remove('live');
+    status.classList.remove('live');
+    status.textContent = 'OFFLINE';
+    pill.classList.remove('live');
   };
 }
 
